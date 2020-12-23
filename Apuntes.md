@@ -19,7 +19,7 @@ ex:
 	areaRect l w = l * w
 El orden en que se introducen los datos a una funcion es importante
 
-# where
+# where / let
 
 Sirve para declarar variables locales en las funiones
 ex:
@@ -27,6 +27,13 @@ ex:
 	    where
 	    s = (a + b + c) / 2
 
+El uso de "let" es antes de el uso de la declaracion
+ex:
+	roots a b c = 
+		let sdisc = sqrt (b * b - 4 * a * c)
+		twice_a = 2 * a
+	in	(-b + sdisc) / twice_a,
+		(-b - sdisc) / twice_a) 
 
 # Boolean operations
 
@@ -80,4 +87,37 @@ Las duplas se usan cuando se cononce le numero de elementos a tratar, por ejempl
 Los datos de una dupla no tienen porque ser del mismo tipo, pueden ser de distintos tipos.
 
 Se pueden almacenar duplas y listas dentro de duplas.
+
+# if/then/else
+
+if + condition
+    then + /cosas/
+    else if + condition
+        then + /cosas/
+        else + /cosas/
+
+Haskell siempre pide que al menos exista un then y else en una declaracion de if, y debe devolver en ambos casos un valor del mismo tipo
+
+# Pattern matching
+
+pts :: Int -> Int
+pts 1 = 10
+pts 2 = 6
+pts 3 = 4
+pts 4 = 3
+pts 5 = 2
+pts 6 = 1
+pts _ = 0
+
+En la ultima linea la "_" significa cualquier otro valor distinto de los anteriores.
+
+Este formato tambien puede mezclarse con otros estilos como puede ser "Guards"
+
+pts :: Int -> Int
+pts 1 = 10
+pts 2 = 6
+pts x
+    | x <= 6    = 7 - x
+    | otherwise = 0
+
 

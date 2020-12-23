@@ -27,3 +27,34 @@ strings = ["here", "are", "some", "strings"]
 dp1 = (True, 1)
 dp2 = ("Hello world", False)
 dp3 = (4, 5, "Six", True, 'b')
+
+-- Polymorphic types
+x = 2
+y = x + 3.1
+
+-- if / then / else
+mySignum x =
+    if x < 0
+        then -1
+        else if x > 0
+            then 1
+            else 0
+
+-- Pattern matching
+pts :: Int -> Int
+pts 1 = 10
+pts 2 = 6
+pts 3 = 4
+pts 4 = 3
+pts 5 = 2
+pts 6 = 1
+pts _ = 0
+
+pts' :: Int -> Int
+pts' 1 = 10
+pts' 2 = 6
+pts' x
+    | x <= 6    = 7 - x
+    | otherwise = 0
+
+
